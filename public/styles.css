@@ -1,0 +1,98 @@
+html {
+	height: 100%
+}
+
+body {
+	font-family: arial;
+	font-size: 13px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: helvetica;
+	/*src: url(helvetica.otf);*/
+	src: url(HelveticaNeue.ttf);
+}
+
+#root {
+	background: black url(back.jpg);
+	min-height: 100%;
+	min-width: 500px;
+}
+
+h1 {
+	color: white;
+	font-family: helvetica;
+	font-size: 64px;
+	letter-spacing: 3px;
+	text-align: center;
+	margin: 0;
+	padding: 10px 0;
+}
+
+.page {
+}
+
+.content {
+	background: white;
+	border-radius: 2px;
+	max-width: 1350px;
+	margin: 0 auto;
+	padding: 40px;
+	padding-right: 0;
+}
+
+.module-name {
+	font-family: helvetica;
+	font-size: 36px;
+	margin-bottom: 40px 0;
+}
+.module-date {
+	color: gray;
+	margin-top: 5px;
+	margin-bottom: 40px;
+}
+
+.course-tiasers {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 40px;
+}
+
+.course-tiaser {
+	margin-right: 20px;
+	margin-bottom: 30px;
+	overflow: hidden;
+	width: 420px;
+}
+
+.course-tiaser__img {	
+	width: 420px;
+	height: 280px;
+	margin-bottom: 5px;
+}
+.course-tiaser ._img-1 { background: url(1.jpg); background-size: 420px; }
+.course-tiaser ._img-2 { background: url(2.jpg); background-size: 420px; background-position: 0 -5px; }
+.course-tiaser ._img-3 { background: url(3.jpg); background-size: 420px; }
+.course-tiaser ._img-4 { background: url(4.jpg); background-size: 510px; background-position: -50px 0; }
+.course-tiaser ._img-5 { background: url(5.jpg); background-size: 420px; }
+.course-tiaser ._img-6 { background: url(6.jpg); background-size: 520px; background-position: -50px 0; }
+.course-tiaser ._img-7 { background: url(7.jpg); background-size: 420px; }
+.course-tiaser ._img-8 { background: url(8.jpg); background-size: 420px; }
+.course-tiaser ._img-9 { background: url(9.jpg); background-size: 420px; }
+.course-tiaser ._img-10 { background: url(10.jpg); background-size: 420px; }
+.course-tiaser ._img-11 { background: url(11.jpg); background-size: 420px; }
+.course-tiaser ._img-12 { background: url(12.jpg); background-size: 420px; }
+.course-tiaser ._img-13 { background: url(13.jpg); background-size: 420px; background-position: 0 -45px; }
+.course-tiaser ._img-14 { background: url(14.jpg); background-size: 420px; }
+
+.course-tiaser__title {
+	font-size: 22px;
+}
+.course-tiaser__price {
+	color: orange;
+	font-size: 22px;
+	float: right;
+}
