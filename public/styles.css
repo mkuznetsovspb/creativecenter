@@ -17,11 +17,15 @@ body {
 }
 
 #root {
-	background: black url(back.jpg);
+	background: black url(back.jpg) fixed 50% 50%;
+	background-size: cover;
 	min-height: 100%;
 	min-width: 500px;
 }
 
+.h0 {
+	font-size: 80px;
+}
 h1 {
 	color: white;
 	font-family: helvetica;
@@ -29,7 +33,11 @@ h1 {
 	letter-spacing: 3px;
 	text-align: center;
 	margin: 0;
-	padding: 10px 0;
+	padding: 40px 0;
+}
+h1 a {
+	color: inherit;
+	text-decoration: none;
 }
 
 .page {
@@ -41,13 +49,15 @@ h1 {
 	max-width: 1350px;
 	margin: 0 auto;
 	padding: 40px;
-	padding-right: 0;
+}
+
+.menu {
+	float: right;
 }
 
 .module-name {
 	font-family: helvetica;
 	font-size: 36px;
-	margin-bottom: 40px 0;
 }
 .module-date {
 	color: gray;
@@ -95,4 +105,91 @@ h1 {
 	color: orange;
 	font-size: 22px;
 	float: right;
+}
+.course-tiaser a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.course-data__title,
+.course-data__regged {
+	font-family: helvetica;
+	font-size: 36px;
+}
+.course-data__options {
+	font-size: 20px;
+	
+}
+.course-data__options span {
+	border-bottom: 1px dashed gray;
+	color: silver;
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 40px;
+	margin-top: 20px;
+}
+.course-data__options span:hover {
+	color: red;
+	border-bottom: 1px dashed red;
+}
+.course-data__options span._selected {
+	border-bottom: none;
+	color: gray;
+	cursor: default;
+}
+.course-data__details {
+	font-size: 15px;
+	line-height: 1.5;
+	margin-top: 20px;
+}
+.course-data__reg {
+	text-align: center;
+	margin: 40px 0;
+}
+
+.btn {
+	background: orange;
+	border-radius: 2px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 24px;
+	padding: 20px 50px;
+	transition: opacity 0.2s ease, background 1s ease;
+}
+.btn:hover {
+	opacity: 0.9;
+}
+.btn._secondary {
+	background: #7cc0d0;
+}
+.btn._size_s {
+	font-size: 15px;
+	padding: 10px 20px;
+}
+.btn a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.signIn {
+	background: url(stop.jpg);
+	background-size: 100%;
+	width: 100%;
+	height: 354px;
+}
+
+@media (max-width: 1000px) {
+	.content {
+		max-width: 420px;
+	}
+	.course-tiaser {
+		margin-right: 0;
+	}
+}
+@media (min-width: 1000px) and (max-width: 1500px) {
+	.content {
+		max-width: 880px;
+	}
 }
