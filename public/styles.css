@@ -168,6 +168,10 @@ h1 a {
 .btn._secondary {
 	background: #7cc0d0;
 }
+.btn._disabled {
+	background: #e2e2e2;
+	cursor: default;
+}
 .btn._size_s {
 	font-size: 15px;
 	padding: 10px 20px;
@@ -190,6 +194,9 @@ h1 a {
 	outline: 0;
 	padding: 10px;
 	width: 300px;
+}
+.form-field::placeholder {
+	color: silver;
 }
 ._error {
 	background: #ffe0e6;
@@ -218,8 +225,37 @@ h1 a {
 	color: gray;
 	font-style: italic;
 }
+.pay,
+.reject {
+	margin-top: 20px;
+	line-height: 1.5;
+}
+.pay__pict {
+	max-width: 100%;
+}
 
-@media (max-width: 980px) {
+.reject__option label,
+.reject__option input {
+	cursor: pointer;
+}
+.reject__options {
+	margin: 40px 0;
+	text-align: center;
+}
+
+@media (max-width: 979px) {
+	.h0 {
+		font-size: 60px;
+	}
+	h1 {
+		color: white;
+		font-family: helvetica;
+		font-size: 48px;
+		letter-spacing: 3px;
+		text-align: center;
+		margin: 0;
+		padding: 40px 0;
+	}
 	.content {
 		max-width: 420px;
 	}
