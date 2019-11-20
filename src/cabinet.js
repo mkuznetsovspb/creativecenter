@@ -7,7 +7,6 @@ export default class extends React.Component {
 	}
 	
 	render() {
-		console.log(this.data);
 		return (
 			<div className="content">
 				<div className="page-title">Личный кабинет</div>
@@ -30,25 +29,25 @@ export default class extends React.Component {
 							<td>Оранжевая осень</td>
 							<td>Переговоры с трудным заказчиком</td>
 							<td className="my-courses__price">32 990 &#8381;</td>
-							<td className="my-courses__action"><div className="btn _size_s">Оплатить</div></td>
+							<td className="my-courses__action"><Link to="/pay"><div className="btn _size_s">Оплатить</div></Link></td>
 						</tr>
 						<tr>
 							<td>Оранжевая осень</td>
 							<td>Основы риторики</td>
 							<td className="my-courses__price">57 900 &#8381;</td>
-							<td className="my-courses__action"><div className="btn _size_s ">Оплатить</div></td>
+							<td className="my-courses__action"><Link to="/pay"><div className="btn _size_s ">Оплатить</div></Link></td>
 						</tr>
 						<tr>
 							<td>Зимний Оливье</td>
 							<td>Всемирная история</td>
 							<td className="my-courses__price">32 800 &#8381;</td>
-							<td className="my-courses__action"><div className="btn _size_s _secondary">Отказаться</div></td>
+							<td className="my-courses__action"><Link to="/reject"><div className="btn _size_s _secondary">Отказаться</div></Link></td>
 						</tr>
 						<tr>
 							<td>Зимний Оливье</td>
 							<td>Как успевать вовремя</td>
 							<td className="my-courses__price">38 100 &#8381;</td>
-							<td className="my-courses__action"><div className="btn _size_s _secondary">Отказаться</div></td>
+							<td className="my-courses__action"><Link to="/reject"><div className="btn _size_s _secondary">Отказаться</div></Link></td>
 						</tr>
 					</tbody>
 				</table>

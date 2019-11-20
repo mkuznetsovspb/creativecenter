@@ -50,6 +50,7 @@ to: object*/
 							onKeyDown={this.handleLoginChange.bind(this)}
 							autoFocus={true}
 							type="text"
+							placeholder="Логин"
 						/>
 					</p>
 					<p>
@@ -58,6 +59,7 @@ to: object*/
 							onChange={this.handlePasswordChange.bind(this)}
 							onKeyDown={this.handlePasswordChange.bind(this)}
 							type="password"
+							placeholder="Пароль"
 						/>
 					</p>
 					<div className="btn" onClick={this.handleSend.bind(this)}>Войти</div>
