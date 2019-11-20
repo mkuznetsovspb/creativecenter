@@ -2771,6 +2771,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_course_data__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_sign_in__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_cabinet__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_pay__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_reject__ = __webpack_require__(44);
+
+
 
 
 
@@ -2781,20 +2785,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /*
 Соскочить, пока бесплатно
 
+- С какого района?
+
 - А деньги?
 
 - А че такое?
 
 - Свободная касса!
 
-На нашем портале пока нет возможности оплатить обучение онлайн. Поэтому идите в Сбербанк и скажите там:
-- Здрасьте, хотел бы перевести деньги на расчетный счет 6125333100000000000000000000000012612823666234498129, сумма такая-то.
-
-Еще можете на занятиях оплатить обучение. Только не показывайте деньги преподавателю, оплачиваейте девушке на ресепшене.
-
 Во время демонстационного периода от курса можно отказаться бесплатно. Пожалуйста, укажите причину, по которой вы отказываетесь о обучения:
 
 Ваши курсы - полная чушь
+
+Ваш сайт общается со мной как гопник
 
 Компания, которая оплачивает мне курсы, обанкротилась
 */
@@ -2814,7 +2817,11 @@ var app = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_
   path: "/sign-in"
 }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_sign_in__["a" /* default */], null)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], {
   path: "/cabinet"
-}, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_cabinet__["a" /* default */], null)))));
+}, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_cabinet__["a" /* default */], null)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], {
+  path: "/pay"
+}, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_pay__["a" /* default */], null)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Route */], {
+  path: "/reject"
+}, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8_reject__["a" /* default */], null)))));
 Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(app, document.getElementById('root'));
 
 /***/ }),
@@ -29858,12 +29865,14 @@ function (_React$Component) {
         onChange: this.handleLoginChange.bind(this),
         onKeyDown: this.handleLoginChange.bind(this),
         autoFocus: true,
-        type: "text"
+        type: "text",
+        placeholder: "\u041B\u043E\u0433\u0438\u043D"
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
         className: "form-field" + (this.state.wrongPassword ? " _error" : ""),
         onChange: this.handlePasswordChange.bind(this),
         onKeyDown: this.handlePasswordChange.bind(this),
-        type: "password"
+        type: "password",
+        placeholder: "\u041F\u0430\u0440\u043E\u043B\u044C"
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "btn",
         onClick: this.handleSend.bind(this)
@@ -29922,7 +29931,6 @@ function (_React$Component) {
   _createClass(_default, [{
     key: "render",
     value: function render() {
-      console.log(this.data);
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "content"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
@@ -29955,27 +29963,233 @@ function (_React$Component) {
         className: "my-courses__price"
       }, "32 990 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__action"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
+        to: "/pay"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "btn _size_s"
-      }, "\u041E\u043F\u043B\u0430\u0442\u0438\u0442\u044C"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041E\u0440\u0430\u043D\u0436\u0435\u0432\u0430\u044F \u043E\u0441\u0435\u043D\u044C"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041E\u0441\u043D\u043E\u0432\u044B \u0440\u0438\u0442\u043E\u0440\u0438\u043A\u0438"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+      }, "\u041E\u043F\u043B\u0430\u0442\u0438\u0442\u044C")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041E\u0440\u0430\u043D\u0436\u0435\u0432\u0430\u044F \u043E\u0441\u0435\u043D\u044C"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041E\u0441\u043D\u043E\u0432\u044B \u0440\u0438\u0442\u043E\u0440\u0438\u043A\u0438"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__price"
       }, "57 900 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__action"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
+        to: "/pay"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "btn _size_s "
-      }, "\u041E\u043F\u043B\u0430\u0442\u0438\u0442\u044C"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0417\u0438\u043C\u043D\u0438\u0439 \u041E\u043B\u0438\u0432\u044C\u0435"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0412\u0441\u0435\u043C\u0438\u0440\u043D\u0430\u044F \u0438\u0441\u0442\u043E\u0440\u0438\u044F"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+      }, "\u041E\u043F\u043B\u0430\u0442\u0438\u0442\u044C")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0417\u0438\u043C\u043D\u0438\u0439 \u041E\u043B\u0438\u0432\u044C\u0435"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0412\u0441\u0435\u043C\u0438\u0440\u043D\u0430\u044F \u0438\u0441\u0442\u043E\u0440\u0438\u044F"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__price"
       }, "32 800 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__action"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
+        to: "/reject"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "btn _size_s _secondary"
-      }, "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0417\u0438\u043C\u043D\u0438\u0439 \u041E\u043B\u0438\u0432\u044C\u0435"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041A\u0430\u043A \u0443\u0441\u043F\u0435\u0432\u0430\u0442\u044C \u0432\u043E\u0432\u0440\u0435\u043C\u044F"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+      }, "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0417\u0438\u043C\u043D\u0438\u0439 \u041E\u043B\u0438\u0432\u044C\u0435"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041A\u0430\u043A \u0443\u0441\u043F\u0435\u0432\u0430\u0442\u044C \u0432\u043E\u0432\u0440\u0435\u043C\u044F"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__price"
       }, "38 100 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__action"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
+        to: "/reject"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "btn _size_s _secondary"
-      }, "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F"))))));
+      }, "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F")))))));
+    }
+  }]);
+
+  return _default;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+
+
+/***/ }),
+/* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _default; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var _default =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(_default, _React$Component);
+
+  function _default(props) {
+    _classCallCheck(this, _default);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(_default).call(this, props));
+  }
+
+  _createClass(_default, [{
+    key: "render",
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "content"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "page-title"
+      }, "\u2014 \u0412\u044B \u0441\u043F\u0440\u043E\u0441\u0438\u043B\u0438 \u043F\u0440\u043E \u043A\u0430\u043A\u0438\u0435-\u0442\u043E \u0434\u0435\u043D\u044C\u0433\u0438?"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "pay"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "\u041D\u0430 \u043D\u0430\u0448\u0435\u043C \u043F\u043E\u0440\u0442\u0430\u043B\u0435 \u043F\u043E\u043A\u0430 \u043D\u0435\u0442 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u0438 \u043E\u043F\u043B\u0430\u0442\u0438\u0442\u044C \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435 \u043E\u043D\u043B\u0430\u0439\u043D. \u041F\u043E\u044D\u0442\u043E\u043C\u0443 \u0438\u0434\u0438\u0442\u0435 \u0432 \u0421\u0431\u0435\u0440\u0431\u0430\u043D\u043A \u0438 \u0441\u043A\u0430\u0436\u0438\u0442\u0435 \u0442\u0430\u043C:"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "\u2014 \u0417\u0434\u0440\u0430\u0441\u044C\u0442\u0435, \u0445\u043E\u0442\u0435\u043B \u0431\u044B \u043F\u0435\u0440\u0435\u0432\u0435\u0441\u0442\u0438 \u0434\u0435\u043D\u044C\u0433\u0438 \u043D\u0430 \u0440\u0430\u0441\u0447\u0435\u0442\u043D\u044B\u0439 \u0441\u0447\u0435\u0442 6125333100000000000000000000000012612823613234498129, \u0441\u0443\u043C\u043C\u0430 \u0442\u0430\u043A\u0430\u044F-\u0442\u043E."), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "\u0415\u0449\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043D\u0430 \u0437\u0430\u043D\u044F\u0442\u0438\u044F\u0445 \u043E\u043F\u043B\u0430\u0442\u0438\u0442\u044C \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435. \u0422\u043E\u043B\u044C\u043A\u043E \u043D\u0435 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0439\u0442\u0435 \u0434\u0435\u043D\u044C\u0433\u0438 \u043F\u0440\u0435\u043F\u043E\u0434\u0430\u0432\u0430\u0442\u0435\u043B\u044E, \u043E\u043F\u043B\u0430\u0447\u0438\u0432\u0430\u0439\u0442\u0435 \u0434\u0435\u0432\u043E\u0447\u043A\u0435 \u043D\u0430 \u0440\u0435\u0441\u0435\u043F\u0448\u0435\u043D\u0435."), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+        className: "pay__pict",
+        src: "public/money.jpg",
+        alt: ""
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
+        to: "/cabinet"
+      }, "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u0432 \u043B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442"))));
+    }
+  }]);
+
+  return _default;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _default; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var _default =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(_default, _React$Component);
+
+  function _default(props) {
+    var _this;
+
+    _classCallCheck(this, _default);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(_default).call(this, props));
+    _this.state = {
+      active: false,
+      rejected: false
+    };
+    return _this;
+  }
+
+  _createClass(_default, [{
+    key: "handleChangeOption",
+    value: function handleChangeOption() {
+      this.setState({
+        active: true
+      });
+    }
+  }, {
+    key: "handleReject",
+    value: function handleReject() {
+      if (this.state.active) this.setState({
+        rejected: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var component;
+
+      if (this.state.rejected) {
+        component = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "content"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "page-title"
+        }, "\u0413\u043E\u0442\u043E\u0432\u043E"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "reject"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "\u0421\u043F\u0430\u0441\u0438\u0431\u043E, \u0447\u0442\u043E \u043F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0434\u0438\u043B\u0438 \u043E\u0431 \u043E\u0442\u043A\u0430\u0437\u0435 \u043E\u0442 \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u044F. \u041C\u044B, \u043A\u043E\u043D\u0435\u0447\u043D\u043E, \u043D\u0435\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0438\u0434\u0435\u043B\u0438\u0441\u044C, \u043D\u043E \u0432\u0441\u0435 \u0440\u0430\u0432\u043D\u043E \u0436\u0434\u0435\u043C \u0432\u0430\u0441 \u0441\u043D\u043E\u0432\u0430 \u0432 \u043D\u0430\u0448\u0435\u043C \u0442\u0432\u043E\u0440\u0447\u0435\u0441\u043A\u043E\u043C \u0446\u0435\u043D\u0442\u0440\u0435.")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
+          to: "/cabinet"
+        }, "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u0432 \u043B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442")));
+      } else {
+        component = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "content"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "page-title"
+        }, "\u2014 \u0427\u0435 \u0442\u0430\u043A\u043E\u0435?"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "reject"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, "\u0412\u043E \u0432\u0440\u0435\u043C\u044F \u0434\u0435\u043C\u043E\u043D\u0441\u0442\u0440\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0433\u043E \u043F\u0435\u0440\u0438\u043E\u0434\u0430 \u043E\u0442 \u043A\u0443\u0440\u0441\u0430 \u043C\u043E\u0436\u043D\u043E \u043E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E. \u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u0443\u043A\u0430\u0436\u0438\u0442\u0435 \u043F\u0440\u0438\u0447\u0438\u043D\u0443 \u043E\u0442\u043A\u0430\u0437\u0430 \u043E\u0442 \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u044F:"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+          className: "reject__option"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+          type: "radio",
+          name: "why",
+          onChange: this.handleChangeOption.bind(this)
+        }), " \u0412\u0430\u0448\u0438 \u043A\u0443\u0440\u0441\u044B \u2014 \u043F\u043E\u043B\u043D\u0430\u044F \u0447\u0443\u0448\u044C")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+          className: "reject__option"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+          type: "radio",
+          name: "why",
+          onChange: this.handleChangeOption.bind(this)
+        }), " \u0412\u0430\u0448 \u0441\u0430\u0439\u0442 \u043E\u0431\u0449\u0430\u0435\u0442\u0441\u044F \u0441\u043E \u043C\u043D\u043E\u0439 \u043A\u0430\u043A \u0433\u043E\u043F\u043D\u0438\u043A")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+          className: "reject__option"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+          type: "radio",
+          name: "why",
+          onChange: this.handleChangeOption.bind(this)
+        }), " \u041D\u0430\u0448\u0435\u043B \u0431\u043E\u043B\u0435\u0435 \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u043E\u0435 \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+          className: "reject__option"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+          type: "radio",
+          name: "why",
+          onChange: this.handleChangeOption.bind(this)
+        }), " \u042F \u0432\u043E\u043E\u0431\u0449\u0435 \u043B\u044E\u0431\u043B\u044E \u0441\u043D\u0430\u0447\u0430\u043B\u0430 \u043F\u043E\u043E\u0431\u0449\u0430\u0442\u044C, \u0430 \u043F\u043E\u0442\u043E\u043C \u0442\u0430\u043A\u043E\u0439: \xAB\u043D\u0435, \u044F \u0442\u0430\u043A\u043E\u0433\u043E \u043D\u0435 \u0433\u043E\u0432\u043E\u0440\u0438\u043B\xBB")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+          className: "reject__option"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+          type: "radio",
+          name: "why",
+          onChange: this.handleChangeOption.bind(this)
+        }), " \u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F, \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u043E\u043F\u043B\u0430\u0447\u0438\u0432\u0430\u0435\u0442 \u043C\u043D\u0435 \u043A\u0443\u0440\u0441\u044B, \u043E\u0431\u0430\u043D\u043A\u0440\u043E\u0442\u0438\u043B\u0430\u0441\u044C")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "reject__options"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: 'btn' + (this.state.active ? '' : ' _disabled'),
+          onClick: this.handleReject.bind(this)
+        }, "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F \u043E\u0442 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u0438 \u043F\u043E\u0443\u043C\u043D\u0435\u0442\u044C")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
+          to: "/cabinet"
+        }, "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u0432 \u043B\u0438\u0447\u043D\u044B\u0439 \u043A\u0430\u0431\u0438\u043D\u0435\u0442"))));
+      }
+
+      return component;
     }
   }]);
 
