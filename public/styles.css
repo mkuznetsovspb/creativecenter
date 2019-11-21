@@ -98,6 +98,7 @@ h1 a {
 .course-tiaser ._img-12 { background: url(12.jpg); background-size: 420px; }
 .course-tiaser ._img-13 { background: url(13.jpg); background-size: 420px; background-position: 0 -45px; }
 .course-tiaser ._img-14 { background: url(14.jpg); background-size: 420px; }
+.course-tiaser ._img-15 { background: url(15.jpg); background-size: 420px; }
 
 .course-tiaser__title {
 	font-size: 22px;
@@ -206,8 +207,9 @@ h1 a {
 .my-courses {
 	border-collapse: collapse;
 	font-size: 15px;
-	margin: 40px 0;
+	margin: 40px auto;
 	width: 100%;
+	max-width: 1200px;
 }
 .my-courses tr {
 	height: 60px;
@@ -220,11 +222,19 @@ h1 a {
 }
 .my-courses__price {
 	text-align: right;
+	white-space: nowrap;
 }
 .my-courses__action._done {
-	color: gray;
+	color: silver;
 	font-style: italic;
 }
+.my-courses__module-row {
+	font-size: 20px;
+}
+.my-courses__course-name {
+	padding-left: 40px;
+}
+
 .pay,
 .reject {
 	margin-top: 20px;
