@@ -270,103 +270,6 @@ if (process.env.NODE_ENV === 'production') {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
-
-/* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (err) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -702,6 +605,103 @@ if (process.env.NODE_ENV !== "production") {
 //# sourceMappingURL=react-router-dom.js.map
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
 
 /***/ }),
 /* 4 */
@@ -2766,7 +2766,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_course_list__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_course_data__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_sign_in__ = __webpack_require__(41);
@@ -2781,26 +2781,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
-/*
-Соскочить, пока бесплатно
-
-- С какого района?
-
-- А деньги?
-
-- А че такое?
-
-- Свободная касса!
-
-Во время демонстационного периода от курса можно отказаться бесплатно. Пожалуйста, укажите причину, по которой вы отказываетесь о обучения:
-
-Ваши курсы - полная чушь
-
-Ваш сайт общается со мной как гопник
-
-Компания, которая оплачивает мне курсы, обанкротилась
-*/
 
 var app = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["a" /* HashRouter */], null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
   className: "page"
@@ -2838,7 +2818,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(app, document.getEleme
  * LICENSE file in the root directory of this source tree.
  */
 
-var h=__webpack_require__(2),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,aa=n?Symbol.for("react.suspense_list"):60120,ba=n?Symbol.for("react.memo"):
+var h=__webpack_require__(3),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,aa=n?Symbol.for("react.suspense_list"):60120,ba=n?Symbol.for("react.memo"):
 60115,ca=n?Symbol.for("react.lazy"):60116;n&&Symbol.for("react.fundamental");n&&Symbol.for("react.responder");var z="function"===typeof Symbol&&Symbol.iterator;
 function A(a){for(var b=a.message,d="https://reactjs.org/docs/error-decoder.html?invariant="+b,c=1;c<arguments.length;c++)d+="&args[]="+encodeURIComponent(arguments[c]);a.message="Minified React error #"+b+"; visit "+d+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ";return a}var B={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},C={};
 function D(a,b,d){this.props=a;this.context=b;this.refs=C;this.updater=d||B}D.prototype.isReactComponent={};D.prototype.setState=function(a,b){if("object"!==typeof a&&"function"!==typeof a&&null!=a)throw A(Error(85));this.updater.enqueueSetState(this,a,b,"setState")};D.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};function E(){}E.prototype=D.prototype;function F(a,b,d){this.props=a;this.context=b;this.refs=C;this.updater=d||B}var G=F.prototype=new E;
@@ -2878,7 +2858,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(2);
+var _assign = __webpack_require__(3);
 var checkPropTypes = __webpack_require__(6);
 
 // TODO: this is special because it gets imported during build.
@@ -5162,7 +5142,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),n=__webpack_require__(2),r=__webpack_require__(12);function ba(a,b,c,d,e,f,g,h){if(!a){a=void 0;if(void 0===b)a=Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var l=[c,d,e,f,g,h],k=0;a=Error(b.replace(/%s/g,function(){return l[k++]}));a.name="Invariant Violation"}a.framesToPop=1;throw a;}}
+var aa=__webpack_require__(1),n=__webpack_require__(3),r=__webpack_require__(12);function ba(a,b,c,d,e,f,g,h){if(!a){a=void 0;if(void 0===b)a=Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var l=[c,d,e,f,g,h],k=0;a=Error(b.replace(/%s/g,function(){return l[k++]}));a.name="Invariant Violation"}a.framesToPop=1;throw a;}}
 function x(a){for(var b=arguments.length-1,c="https://reactjs.org/docs/error-decoder.html?invariant="+a,d=0;d<b;d++)c+="&args[]="+encodeURIComponent(arguments[d+1]);ba(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",c)}aa?void 0:x("227");function ca(a,b,c,d,e,f,g,h,l){var k=Array.prototype.slice.call(arguments,3);try{b.apply(c,k)}catch(m){this.onError(m)}}
 var da=!1,ea=null,fa=!1,ha=null,ia={onError:function(a){da=!0;ea=a}};function ja(a,b,c,d,e,f,g,h,l){da=!1;ea=null;ca.apply(ia,arguments)}function ka(a,b,c,d,e,f,g,h,l){ja.apply(this,arguments);if(da){if(da){var k=ea;da=!1;ea=null}else x("198"),k=void 0;fa||(fa=!0,ha=k)}}var la=null,ma={};
 function na(){if(la)for(var a in ma){var b=ma[a],c=la.indexOf(a);-1<c?void 0:x("96",a);if(!oa[c]){b.extractEvents?void 0:x("97",a);oa[c]=b;c=b.eventTypes;for(var d in c){var e=void 0;var f=c[d],g=b,h=d;pa.hasOwnProperty(h)?x("99",h):void 0;pa[h]=f;var l=f.phasedRegistrationNames;if(l){for(e in l)l.hasOwnProperty(e)&&qa(l[e],g,h);e=!0}else f.registrationName?(qa(f.registrationName,g,h),e=!0):e=!1;e?void 0:x("98",d,a)}}}}
@@ -6180,7 +6160,7 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var React = __webpack_require__(1);
-var _assign = __webpack_require__(2);
+var _assign = __webpack_require__(3);
 var checkPropTypes = __webpack_require__(6);
 var scheduler = __webpack_require__(12);
 var tracing = __webpack_require__(25);
@@ -28178,7 +28158,7 @@ exports.isSuspense = isSuspense;
 
 
 var ReactIs = __webpack_require__(4);
-var assign = __webpack_require__(2);
+var assign = __webpack_require__(3);
 
 var ReactPropTypesSecret = __webpack_require__(7);
 var checkPropTypes = __webpack_require__(6);
@@ -29428,7 +29408,7 @@ module.exports = hoistNonReactStatics;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _default; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(2);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29626,7 +29606,15 @@ function (_React$Component) {
         className: "course-tiaser__price"
       }, "72 900 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "course-tiaser__title"
-      }, "\u0421\u043E\u0437\u0434\u0430\u043D\u0438\u0435 \u0441\u0430\u0439\u0442\u043E\u0432 \u0434\u043B\u044F\xA0\u0442\u0432\u043E\u0440\u0447\u0435\u0441\u043A\u0438\u0445 \u0446\u0435\u043D\u0442\u0440\u043E\u0432")))));
+      }, "\u0421\u043E\u0437\u0434\u0430\u043D\u0438\u0435 \u0441\u0430\u0439\u0442\u043E\u0432 \u0434\u043B\u044F\xA0\u0442\u0432\u043E\u0440\u0447\u0435\u0441\u043A\u0438\u0445 \u0446\u0435\u043D\u0442\u0440\u043E\u0432")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "course-tiaser"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "course-tiaser__img _img-15"
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "course-tiaser__price"
+      }, "9 900 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "course-tiaser__title"
+      }, "\u0418\u043D\u0432\u0435\u0441\u0442\u0438\u0446\u0438\u0438 \u0434\u043B\u044F\xA0\u043D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0445")))));
     }
   }]);
 
@@ -29643,7 +29631,7 @@ function (_React$Component) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _default; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(2);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29774,7 +29762,7 @@ function (_React$Component) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _default; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(2);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29895,7 +29883,7 @@ function (_React$Component) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _default; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(2);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29941,51 +29929,76 @@ function (_React$Component) {
         className: "_selected"
       }, "\u041C\u043E\u0438 \u043A\u0443\u0440\u0441\u044B"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, "\u041F\u0440\u043E\u0439\u0434\u0435\u043D\u043D\u044B\u0435 \u043A\u0443\u0440\u0441\u044B"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", null, "\u041F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435 \u0434\u0430\u043D\u043D\u044B\u0435")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("table", {
         className: "my-courses"
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tbody", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-        style: {
-          width: '300px'
-        }
-      }, "\u041C\u043E\u0434\u0443\u043B\u044C"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", null, "\u041A\u0443\u0440\u0441"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-        style: {
-          width: '100px',
-          textAlign: 'right'
-        }
-      }, "\u0421\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tbody", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
+        className: "my-courses__module-row"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041C\u043E\u0434\u0443\u043B\u044C \xAB\u041E\u0440\u0430\u043D\u0436\u0435\u0432\u0430\u044F \u043E\u0441\u0435\u043D\u044C\xBB"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__price"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("s", null, "109 790 \u20BD")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         style: {
           width: '100px'
         },
-        className: "my-courses__action"
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041E\u0440\u0430\u043D\u0436\u0435\u0432\u0430\u044F \u043E\u0441\u0435\u043D\u044C"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0411\u0438\u0437\u043D\u0435\u0441-\u0430\u043D\u0430\u043B\u0438\u0437 \u0432 IT"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__action _done"
+      }, "\u041E\u043F\u043B\u0430\u0447\u0435\u043D\u043E")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__course-name"
+      }, "\u0411\u0438\u0437\u043D\u0435\u0441-\u0430\u043D\u0430\u043B\u0438\u0437 \u0432 IT"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__price"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("s", null, "18 900 \u20BD")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__action _done"
-      }, "\u041E\u043F\u043B\u0430\u0447\u0435\u043D\u043E")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041E\u0440\u0430\u043D\u0436\u0435\u0432\u0430\u044F \u043E\u0441\u0435\u043D\u044C"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041F\u0435\u0440\u0435\u0433\u043E\u0432\u043E\u0440\u044B \u0441 \u0442\u0440\u0443\u0434\u043D\u044B\u043C \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u043E\u043C"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__course-name"
+      }, "\u041F\u0435\u0440\u0435\u0433\u043E\u0432\u043E\u0440\u044B \u0441 \u0442\u0440\u0443\u0434\u043D\u044B\u043C \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u043E\u043C"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__price"
-      }, "32 990 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("s", null, "32 990 \u20BD")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__action _done"
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__course-name"
+      }, "\u041E\u0441\u043D\u043E\u0432\u044B \u0440\u0438\u0442\u043E\u0440\u0438\u043A\u0438"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__price"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("s", null, "57 900 \u20BD")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__action _done"
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
+        className: "my-courses__module-row"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041C\u043E\u0434\u0443\u043B\u044C \xAB\u0417\u0438\u043C\u043D\u0438\u0439 \u041E\u043B\u0438\u0432\u044C\u0435\xBB"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__price"
+      }, "70 900 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__action"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
         to: "/pay"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "btn _size_s"
-      }, "\u041E\u043F\u043B\u0430\u0442\u0438\u0442\u044C")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041E\u0440\u0430\u043D\u0436\u0435\u0432\u0430\u044F \u043E\u0441\u0435\u043D\u044C"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041E\u0441\u043D\u043E\u0432\u044B \u0440\u0438\u0442\u043E\u0440\u0438\u043A\u0438"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
-        className: "my-courses__price"
-      }, "57 900 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
-        className: "my-courses__action"
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
-        to: "/pay"
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "btn _size_s "
-      }, "\u041E\u043F\u043B\u0430\u0442\u0438\u0442\u044C")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0417\u0438\u043C\u043D\u0438\u0439 \u041E\u043B\u0438\u0432\u044C\u0435"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0412\u0441\u0435\u043C\u0438\u0440\u043D\u0430\u044F \u0438\u0441\u0442\u043E\u0440\u0438\u044F"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+      }, "\u041E\u043F\u043B\u0430\u0442\u0438\u0442\u044C")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__course-name"
+      }, "\u0412\u0441\u0435\u043C\u0438\u0440\u043D\u0430\u044F \u0438\u0441\u0442\u043E\u0440\u0438\u044F"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__price"
       }, "32 800 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__action"
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__course-name"
+      }, "\u041A\u0430\u043A \u0443\u0441\u043F\u0435\u0432\u0430\u0442\u044C \u0432\u043E\u0432\u0440\u0435\u043C\u044F"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__price"
+      }, "38 100 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__action"
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
+        className: "my-courses__module-row"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041C\u043E\u0434\u0443\u043B\u044C \xAB\u0412\u0435\u0441\u0435\u043D\u043D\u044F\u044F \u0441\u043F\u044F\u0447\u043A\u0430\xBB"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__price"
+      }, "82 800 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__action"
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__course-name"
+      }, "\u0421\u043E\u0437\u0434\u0430\u043D\u0438\u0435 \u0441\u0430\u0439\u0442\u043E\u0432 \u0434\u043B\u044F \u0442\u0432\u043E\u0440\u0447\u0435\u0441\u043A\u0438\u0445 \u0446\u0435\u043D\u0442\u0440\u043E\u0432"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__price"
+      }, "72 900 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__action"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
         to: "/reject"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "btn _size_s _secondary"
-      }, "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u0417\u0438\u043C\u043D\u0438\u0439 \u041E\u043B\u0438\u0432\u044C\u0435"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "\u041A\u0430\u043A \u0443\u0441\u043F\u0435\u0432\u0430\u0442\u044C \u0432\u043E\u0432\u0440\u0435\u043C\u044F"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+      }, "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F")))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+        className: "my-courses__course-name"
+      }, "\u0418\u043D\u0432\u0435\u0441\u0442\u0438\u0446\u0438\u0438 \u0434\u043B\u044F \u043D\u0430\u0447\u0438\u043D\u0430\u044E\u0449\u0438\u0445"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__price"
-      }, "38 100 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
+      }, "9 900 \u20BD"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
         className: "my-courses__action"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
         to: "/reject"
@@ -30008,7 +30021,7 @@ function (_React$Component) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _default; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(2);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30073,7 +30086,7 @@ function (_React$Component) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _default; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(2);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30173,7 +30186,7 @@ function (_React$Component) {
           type: "radio",
           name: "why",
           onChange: this.handleChangeOption.bind(this)
-        }), " \u042F \u0432\u043E\u043E\u0431\u0449\u0435 \u043B\u044E\u0431\u043B\u044E \u0441\u043D\u0430\u0447\u0430\u043B\u0430 \u043F\u043E\u043E\u0431\u0449\u0430\u0442\u044C, \u0430 \u043F\u043E\u0442\u043E\u043C \u0442\u0430\u043A\u043E\u0439: \xAB\u043D\u0435, \u044F \u0442\u0430\u043A\u043E\u0433\u043E \u043D\u0435 \u0433\u043E\u0432\u043E\u0440\u0438\u043B\xBB")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        }), " \u042F \u0432\u043E\u043E\u0431\u0449\u0435 \u043B\u044E\u0431\u043B\u044E \u0441\u043D\u0430\u0447\u0430\u043B\u0430 \u043F\u043E\u043E\u0431\u0435\u0449\u0430\u0442\u044C, \u0430 \u043F\u043E\u0442\u043E\u043C \u0442\u0430\u043A\u043E\u0439: \xAB\u043D\u0435, \u044F \u0442\u0430\u043A\u043E\u0433\u043E \u043D\u0435 \u0433\u043E\u0432\u043E\u0440\u0438\u043B\xBB")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
           className: "reject__option"
         }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
           type: "radio",
