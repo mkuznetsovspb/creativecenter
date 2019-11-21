@@ -40,7 +40,7 @@ export default class extends React.Component {
 						<p className="reject__option"><label><input type="radio" name="why" onChange={this.handleChangeOption.bind(this)} /> Ваши курсы — полная чушь</label></p>
 						<p className="reject__option"><label><input type="radio" name="why" onChange={this.handleChangeOption.bind(this)} /> Ваш сайт общается со мной как гопник</label></p>
 						<p className="reject__option"><label><input type="radio" name="why" onChange={this.handleChangeOption.bind(this)} /> Нашел более интересное обучение</label></p>
-						<p className="reject__option"><label><input type="radio" name="why" onChange={this.handleChangeOption.bind(this)} /> Я вообще люблю сначала пообщать, а потом такой: &laquo;не, я такого не говорил&raquo;</label></p>
+						<p className="reject__option"><label><input type="radio" name="why" onChange={this.handleChangeOption.bind(this)} /> Я вообще люблю сначала пообещать, а потом такой: &laquo;не, я такого не говорил&raquo;</label></p>
 						<p className="reject__option"><label><input type="radio" name="why" onChange={this.handleChangeOption.bind(this)} /> Компания, которая оплачивает мне курсы, обанкротилась</label></p>
 						<div className="reject__options">
 							<div className={'btn' + (this.state.active ? '' : ' _disabled')} onClick={this.handleReject.bind(this)}>Отказаться от возможности поумнеть</div>

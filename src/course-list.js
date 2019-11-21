@@ -115,6 +115,11 @@ export default class extends React.Component {
 							<div className="course-tiaser__price">72 900 &#8381;</div>
 							<div className="course-tiaser__title">Создание сайтов для&nbsp;творческих центров</div>
 						</div>
+						<div className="course-tiaser">
+							<div className="course-tiaser__img _img-15"></div>
+							<div className="course-tiaser__price">9 900 &#8381;</div>
+							<div className="course-tiaser__title">Инвестиции для&nbsp;начинающих</div>
+						</div>
 					</div>
 				</div>
 			</div>
